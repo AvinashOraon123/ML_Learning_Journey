@@ -1,0 +1,57 @@
+-- SELECT model,screen_size FROM avinash.smartphones WHERE brand_name = 'samsung'
+-- ORDER BY screen_size DESC LIMIT 1
+-- SELECT model,num_front_cameras+num_rear_cameras AS 'total_cameras' FROM avinash.smartphones
+-- order by total_cameras DESC
+-- SELECT model, ROUND(sqrt(resolution_width*resolution_width+ resolution_height*resolution_height)/screen_size) AS 'ppi' FROM avinash.smartphones
+-- SELECT model,battery_capacity FROM avinash.smartphones
+-- ORDER BY battery_capacity DESC LIMIT 1,1
+-- SELECT model,screen_size FROM avinash.smartphones WHERE brand_name = 'samsung'
+-- SELECT model,rating FROM avinash.smartphones
+-- WHERE brand_name = 'apple'
+-- order by rating ASC LIMIT 1,2
+-- SELECT * FROM avinash.smartphones
+-- WHERE brand_name = 'apple'
+-- order by rating desc,price ASC
+-- SELECT brand_name , COUNT(*) AS 'num_phones',
+-- AVG(price) as 'AVG' ,
+-- MAX(rating) AS 'max rating',
+-- ROUND(avg(screen_size),2),
+-- ROUND(avg(battery_capacity))
+-- FROM avinash.smartphones
+-- group by brand_name
+-- order by num_phones DESC 
+-- SELECT has_nfc, AVG(price) as 'avg price', AVG(rating) as 'rating'
+-- FROM avinash.smartphones
+-- GROUP BY has_5g
+-- SELECT extended_memory_available, AVG(price) as 'avg price', AVG(rating) as 'rating'
+-- FROM avinash.smartphones
+-- GROUP BY extended_memory_available
+-- SELECT extended_memory_available, AVG(price) as 'avg price', AVG(rating) as 'rating'
+-- FROM avinash.smartphones
+-- GROUP BY extended_memory_available
+-- SELECT brand_name, processor_brand, COUNT(*) as 'count', ROUND(AVG(primary_camera_rear)) as 'avg primary camera res'
+-- FROM avinash.smartphones
+-- GROUP BY brand_name, processor_brand
+-- SELECT brand_name, ROUND(AVG(screen_Size)) as 'avg_screen_size'
+-- FROM avinash.smartphones
+-- GROUP BY brand_name
+-- ORDER BY avg_screen_size DESC LIMIT 5
+-- SELECT brand_name, COUNT(*) AS 'count'
+-- FROM avinash.smartphones
+-- where has_nfc = 'True' AND has_ir_blaster ='TRUE'
+-- GROUP BY brand_name
+-- ORDER BY count DESC limit 1
+-- SELECT brand_name, AVG(price), has_nfc
+-- FROM avinash.smartphones
+-- WHERE brand_name = 'samsung' AND has_5g  = 'True'
+-- group by has_nfc
+-- SELECT brand_name, COUNT(*) AS 'count', AVG(rating) as 'avg_rating'
+-- FROM avinash.smartphones
+-- GROUP BY brand_name 
+-- having count >20
+-- order by avg_rating DESC
+SELECT brand_name, avg(price) as 'avg_price' , avg(rating) as 'avg_rating'
+FROM avinash.smartphones
+where has_5g ='True'
+GROUP BY brand_name
+having avg_rating >70 AND COUNT(*) >10
